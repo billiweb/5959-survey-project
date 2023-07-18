@@ -23,4 +23,5 @@ const surveySlice = createSlice({
   }
 });
 
-export default surveySlice;
+export const {} = surveySlice.actions;
+export default surveySlice.reducer;
