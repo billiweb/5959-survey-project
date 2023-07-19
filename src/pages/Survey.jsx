@@ -40,16 +40,16 @@ function Survey() {
   return (
     <form>
       {newData.map((post) => {
-        // if (page === post.id)
-        return (
-          <PageContainer key={post.id}>
-            <p>{post.id}</p>
-            <p>{post.type}</p>
-            <p>질문 : {post.question}</p>
-            <Button onClick={() => nextButtonHandler(post)}>A : {post.answer1}</Button>
-            <Button onClick={() => nextButtonHandler(post)}>B : {post.answer2}</Button>
-          </PageContainer>
-        );
+        if (page == post.id)
+          return (
+            <PageContainer key={post.id}>
+              <p>{post.id}</p>
+              <p>{post.type}</p>
+              <p>질문 : {post.question}</p>
+              <Button onClick={() => nextButtonHandler(post)}>A : {post.answer1}</Button>
+              <Button onClick={() => nextButtonHandler(post)}>B : {post.answer2}</Button>
+            </PageContainer>
+          );
       })}
     </form>
   );
