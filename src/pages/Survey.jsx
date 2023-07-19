@@ -16,6 +16,9 @@ function Survey() {
 
   console.log('>>', data);
 
+  const newData = data ? Object.values(data) : [];
+  console.log('it new', newData);
+
   const [page, setPage] = useState(1);
 
   if (isLoading) {
@@ -36,17 +39,17 @@ function Survey() {
 
   return (
     <form>
-      {data.map((post) => {
-        if (page === post.id)
-          return (
-            <PageContainer key={post.id}>
-              <p>{post.id}</p>
-              <p>{post.type}</p>
-              <p>질문 : {post.question}</p>
-              <Button onClick={() => nextButtonHandler(post)}>A : {post.answer1}</Button>
-              <Button onClick={() => nextButtonHandler(post)}>B : {post.answer2}</Button>
-            </PageContainer>
-          );
+      {newData.map((post) => {
+        // if (page === post.id)
+        return (
+          <PageContainer key={post.id}>
+            <p>{post.id}</p>
+            <p>{post.type}</p>
+            <p>질문 : {post.question}</p>
+            <Button onClick={() => nextButtonHandler(post)}>A : {post.answer1}</Button>
+            <Button onClick={() => nextButtonHandler(post)}>B : {post.answer2}</Button>
+          </PageContainer>
+        );
       })}
     </form>
   );
