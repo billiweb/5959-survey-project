@@ -45,12 +45,17 @@ function Survey() {
   }
 
   const nextButtonPlusHandler = (post) => {
+    dispatch(addCountEI(post.mbti));
     if (page !== 12) {
       setPage(page + 1);
     } else {
-      return navigate('/result');
+      return navigate(
+        '/result'
+        // {
+        //   state: { EI: countEI, NS: countNS, FT: countFT, PJ: countPJ }
+        // }
+      );
     }
-    dispatch(addCountEI(post.mbti));
   };
 
   const nextButtonStayHandler = (post) => {

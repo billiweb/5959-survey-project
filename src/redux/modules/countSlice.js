@@ -1,15 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const initialState = [
-//   {
-//     id: 5,
-//     countEI: 0,
-//     countNS: 0,
-//     countFT: 0,
-//     countPJ: 0
-//   }
-// ];
-
 export const countSlice = createSlice({
   name: 'count',
   initialState: [
