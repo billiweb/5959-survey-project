@@ -15,14 +15,11 @@ export const countSlice = createSlice({
   initialState,
   reducers: {
     addCountEI: (state, action) => {
-      return state.map((count) => {
-        return {
-          countEI: action.payload
-        };
-      });
+      // if(action.payload)
+      return state.countEI + 1;
     }
   }
 });
 
-export const {} = countSlice.actions;
+export const { addCountEI } = countSlice.actions;
 export default countSlice.reducer;
