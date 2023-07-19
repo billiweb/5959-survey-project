@@ -8,18 +8,18 @@ import { addCountEI } from '../redux/modules/countSlice';
 
 function Survey() {
   const countEI = useSelector(function (state) {
-    return state.countSlice.countEI;
+    return state.countSlice[0].countEI;
   });
   const countNS = useSelector(function (state) {
-    return state.countSlice.countNS;
+    return state.countSlice[0].countNS;
   });
   const countFT = useSelector(function (state) {
-    return state.countSlice.countFT;
+    return state.countSlice[0].countFT;
   });
   const countPJ = useSelector(function (state) {
-    return state.countSlice.countPJ;
+    return state.countSlice[0].countPJ;
   });
-  // console.log('>>>>', countData);
+  console.log('>>>>', countEI);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ function Survey() {
     } else {
       return navigate('/result');
     }
-    dispatch(addCountEI(1));
+    dispatch(addCountEI(post.mbti));
   };
 
   const nextButtonStayHandler = (post) => {
@@ -61,10 +61,6 @@ function Survey() {
     }
   };
 
-  // const testButton = (e) => {
-  //   dispatch(addCountEI(1));
-  // };
-
   return (
     <form>
       {newData.map((post) => {
@@ -73,6 +69,7 @@ function Survey() {
             <PageContainer key={post.id}>
               <p>{post.id}</p>
               <p>{post.type}</p>
+              <p>{post.mbti}</p>
               <p>질문 : {post.question}</p>
               <Button onClick={() => nextButtonPlusHandler(post)}>A : {post.answer1}</Button>
               <Button onClick={() => nextButtonStayHandler(post)}>B : {post.answer2}</Button>
@@ -80,7 +77,6 @@ function Survey() {
               <p>counNS : {countNS}</p>
               <p>counFT : {countFT}</p>
               <p>counPJ : {countPJ}</p>
-              {/* <button onClick={testButton}>Test</button> */}
             </PageContainer>
           );
       })}
