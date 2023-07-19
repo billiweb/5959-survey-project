@@ -13,7 +13,6 @@ root.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <App />
-      <Survey />
     </Provider>
   </QueryClientProvider>
 );
