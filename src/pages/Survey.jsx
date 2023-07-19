@@ -16,6 +16,9 @@ function Survey() {
 
   console.log('>>', data);
 
+  const newData = data ? Object.values(data) : [];
+  console.log('it new', newData);
+
   const [page, setPage] = useState(1);
 
   if (isLoading) {
@@ -36,8 +39,8 @@ function Survey() {
 
   return (
     <form>
-      {data.map((post) => {
-        if (page === post.id)
+      {newData.map((post) => {
+        if (page == post.id)
           return (
             <PageContainer key={post.id}>
               <p>{post.id}</p>
