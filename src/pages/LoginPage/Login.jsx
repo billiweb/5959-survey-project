@@ -3,8 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from '@firebase/auth';
-import LoginDiv, {Input} from './Loginpage.styled';
-
+import LoginDiv, { Input } from './Loginpage.styled';
 
 function Login() {
   const [Email, setEmail] = useState('');
@@ -46,21 +45,21 @@ function Login() {
       <form>
         <span>Login</span>
         <label></label>
-        <Input
+        <input
           type="email"
           placeholder="이메일 입력해주세요."
           value={Email}
           name="email"
           onChange={(e) => setEmail(e.currentTarget.value)}
-        ></Input>
+        ></input>
         <br></br>
-        <Input
+        <input
           type="password"
           placeholder="비밀번호를 입력해주세요."
           value={PW}
           name="password"
           onChange={(e) => setPW(e.currentTarget.value)}
-        ></Input>
+        ></input>
         <br></br>
         <button onClick={signInFunc}>로그인</button>
         <br></br>
