@@ -1,8 +1,9 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
+// import { useRef } from 'react';
 
 const Result = () => {
   const { data, isLoading, error } = useQuery('mbti', async () => {
@@ -57,6 +58,22 @@ const Result = () => {
     return <div>Error occurred: {error.message}</div>;
   }
 
+  // // url 복사
+  // const copyUrlRef = useRef(null);
+
+  // const copyUrl = () => {
+  //   const currentUrl = window.location.href; // 현재 페이지 URL 가져오기
+  //   const additionalPath = `detail/`; // 추가할 경로
+
+  //   const newUrl = currentUrl + additionalPath; // 현재 URL에 추가 경로를 붙임
+  //   copyUrlRef.current.value = newUrl; // 복사할 URL을 참조하는 input 요소에 새로운 URL 설정
+
+  //   copyUrlRef.current.select();
+  //   document.execCommand('copy');
+
+  //   alert('링크가 복사되었습니다.');
+  // };
+
   return (
     <PageContainer>
       {newData
@@ -71,7 +88,12 @@ const Result = () => {
             </div>
           );
         })}
-      <Button>공유하기</Button>
+      <Button>
+        {/* onClick={copyUrl}> */}
+        <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
+        공유하기
+      </Button>
+      {/* <TextArea readOnly ref={copyUrlRef} value={window.location.href}></TextArea> */}
     </PageContainer>
   );
 };
@@ -79,18 +101,34 @@ const Result = () => {
 export default Result;
 
 const PageContainer = styled.div`
-  border: 1px solid black;
-  width: 350px;
-  padding: 10px;
-  margin: 20px auto;
+  width: 800px;
+  height: 700px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding-left: 5%;
+
+  box-shadow: 1px 1px 5px gray;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
-  width: 90%;
-  margin: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  width: 30%;
+  padding: 20px auto 20px auto;
+  font-size: 20px;
+  background-color: pink;
+  border: 2px solid gray;
+`;
+
+const Icon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
 `;
 
 // E : 0,1
