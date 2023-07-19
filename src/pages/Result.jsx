@@ -1,28 +1,76 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 const Result = () => {
-  const countEI = useSelector(function (state) {
+  const { data, isLoading, error } = useQuery('mbti', async () => {
+    const response = await axios.get('http://localhost:3001/mbti');
+    return response.data;
+  });
+
+  const newData = data ? Object.values(data) : [];
+
+  const EI = useSelector(function (state) {
     return state.countSlice[0].countEI;
   });
-  const countNS = useSelector(function (state) {
+  const NS = useSelector(function (state) {
     return state.countSlice[0].countNS;
   });
-  const countFT = useSelector(function (state) {
+  const FT = useSelector(function (state) {
     return state.countSlice[0].countFT;
   });
-  const countPJ = useSelector(function (state) {
+  const PJ = useSelector(function (state) {
     return state.countSlice[0].countPJ;
   });
 
-  console.log('EI', countEI, countNS, countFT, countPJ);
+  let list = '';
+  if (EI < 2) {
+    list += 'E';
+  } else {
+    list += 'I';
+  }
+
+  if (NS < 2) {
+    list += 'N';
+  } else {
+    list += 'S';
+  }
+  if (FT < 2) {
+    list += 'F';
+  } else {
+    list += 'T';
+  }
+
+  if (PJ < 2) {
+    list += 'P';
+  } else {
+    list += 'J';
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error occurred: {error.message}</div>;
+  }
 
   return (
     <PageContainer>
-      <h3>INTJ - 용의주도한 전략가</h3>
-      <p>목표 지향적. Github에 잔디 심어지는 모습을 보면서 큰 행복감을 느낌. 혼자 있는 것을 좋아함.</p>
+      {newData
+        .filter((mbti) => list === mbti.mbti)
+        .map((mbti) => {
+          return (
+            <div key={mbti.mbti}>
+              <h3>
+                {mbti.mbti} - {mbti.title}
+              </h3>
+              <p>{mbti.body}</p>
+            </div>
+          );
+        })}
       <Button>공유하기</Button>
     </PageContainer>
   );
@@ -44,3 +92,15 @@ const Button = styled.button`
   padding-top: 5px;
   padding-bottom: 5px;
 `;
+
+// E : 0,1
+// I : 2,3
+
+// N : 0,1
+// S : 2,3
+
+// F : 0,1
+// T : 2,3
+
+// P : 0,1
+// J : 2,3
