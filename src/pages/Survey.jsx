@@ -91,7 +91,7 @@ const PageContainer = styled.div`
   width: 800px;
   height: 500px;
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   margin-top: 20px;
   transform: translate(-50%, -50%);
