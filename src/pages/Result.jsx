@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
 import { resetCount } from '../redux/modules/countSlice';
+import html2canvas from 'html2canvas';
 
 // import { useRef } from 'react';
 
@@ -82,13 +83,33 @@ const Result = () => {
     dispatch(resetCount());
     navigate('/survey/1');
   };
+
+  const handleCaptureClick = () => {
+    const elementToCapture = document.getElementById('captureThis'); // 캡처할 요소의 ID
+
+    html2canvas(elementToCapture).then((canvas) => {
+      // 캡처된 이미지 데이터를 얻습니다.
+      const capturedImageURL = canvas.toDataURL('image/png');
+
+      // 이미지를 컴퓨터에 저장하기 위한 링크를 생성합니다.
+      const downloadLink = document.createElement('a');
+      downloadLink.href = capturedImageURL;
+      downloadLink.download = 'captured_image.png';
+
+      // 링크를 클릭하여 이미지를 다운로드합니다.
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  };
+
   return (
     <PageContainer>
       {newData
         .filter((mbti) => list === mbti.mbti)
         .map((mbti) => {
           return (
-            <PostContainer key={mbti.mbti}>
+            <PostContainer key={mbti.mbti} id="captureThis">
               <StImage src={mbti.img} alt="이미지 없음" />
               <h3>
                 {mbti.mbti} - {mbti.title}
@@ -98,9 +119,9 @@ const Result = () => {
           );
         })}
       <ButtonContainer>
-        <Button>
+        <Button onClick={handleCaptureClick}>
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
-          공유하기
+          저장하기
         </Button>
         <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
           다시하기
