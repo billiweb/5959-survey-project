@@ -88,28 +88,25 @@ const Result = () => {
         .filter((mbti) => list === mbti.mbti)
         .map((mbti) => {
           return (
-            <div key={mbti.mbti}>
+            <PostContainer key={mbti.mbti}>
+              <StImage src={mbti.img} alt="이미지 없음" />
               <h3>
                 {mbti.mbti} - {mbti.title}
               </h3>
               <p>{mbti.body}</p>
-              <img src={mbti.img} alt="이미지 없음" />
-            </div>
+            </PostContainer>
           );
         })}
-      <div>
+      <ButtonContainer>
         <Button>
-          {/* onClick={copyUrl}> */}
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
           공유하기
         </Button>
-        {/* <TextArea readOnly ref={copyUrlRef} value={window.location.href}></TextArea> */}
-        {/* <Link to="/survey/:id" style={{ textDecoration: 'none' }}> */}
         <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
           다시하기
         </Button>
         {/* </Link> */}
-      </div>
+      </ButtonContainer>
     </PageContainer>
   );
 };
@@ -120,7 +117,7 @@ const PageContainer = styled.div`
   width: 800px;
   height: 700px;
   position: fixed;
-  margin-top: 100px;
+  margin-top: 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -135,7 +132,7 @@ const PageContainer = styled.div`
 `;
 
 const Button = styled.button`
-  width: 30%;
+  width: 200px;
   padding: 20px auto 20px auto;
   font-size: 20px;
   background-color: pink;
@@ -143,19 +140,32 @@ const Button = styled.button`
 `;
 
 const Icon = styled.img`
+  justify-content: center;
   width: 20px;
   height: 20px;
   margin-right: 15px;
 `;
 
-// E : 0,1
-// I : 2,3
+const PostContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 100px;
+`;
 
-// N : 0,1
-// S : 2,3
+const StImage = styled.img`
+  justify-content: center;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+`;
 
-// F : 0,1
-// T : 2,3
-
-// P : 0,1
-// J : 2,3
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+`;
