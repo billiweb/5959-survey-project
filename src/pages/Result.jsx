@@ -129,7 +129,7 @@ const PageContainer = styled.div`
   height: 700px;
   position: fixed;
   margin-top: 20px;
-  top: 50%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
