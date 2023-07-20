@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Main from '../pages/Main';
 import Result from '../pages/Result';
 import Survey from '../pages/Survey';
-import Login from '../pages/Login';
 import Header from '../redux/components/Header';
-
+import Login from '../pages/LoginPage/Login';
+import Signup from '../pages/LoginPage/Signup';
 const Router = () => {
   return (
     <BrowserRouter>
@@ -13,8 +13,11 @@ const Router = () => {
       <Routes>
         {/* <Route element={<Header />}> */}
         <Route path="/" element={<Main />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/survey/:id" element={<Survey />} />
         <Route path="/result" element={<Result />} />
+
         <Route path="/login" element={<Login />} />
         <Route
           path="*"
