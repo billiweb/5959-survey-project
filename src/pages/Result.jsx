@@ -1,12 +1,16 @@
 import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
+import { resetCount } from '../redux/modules/countSlice';
+
 // import { useRef } from 'react';
 
 const Result = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { data, isLoading, error } = useQuery('mbti', async () => {
     const response = await axios.get('http://localhost:3001/mbti');
     return response.data;
@@ -74,7 +78,10 @@ const Result = () => {
 
   //   alert('링크가 복사되었습니다.');
   // };
-
+  const resetButton = () => {
+    dispatch(resetCount());
+    navigate('/survey/1');
+  };
   return (
     <PageContainer>
       {newData
@@ -97,9 +104,11 @@ const Result = () => {
           공유하기
         </Button>
         {/* <TextArea readOnly ref={copyUrlRef} value={window.location.href}></TextArea> */}
-        <Link to="/survey/:id" style={{ textDecoration: 'none' }}>
-          <Button style={{ marginLeft: '20px' }}>다시하기</Button>
-        </Link>
+        {/* <Link to="/survey/:id" style={{ textDecoration: 'none' }}> */}
+        <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
+          다시하기
+        </Button>
+        {/* </Link> */}
       </div>
     </PageContainer>
   );

@@ -26,9 +26,18 @@ export const countSlice = createSlice({
           return false;
         }
       });
+    },
+    resetCount: (state) => {
+      return state.map((count) => ({
+        ...count,
+        countEI: 0,
+        countNS: 0,
+        countFT: 0,
+        countPJ: 0
+      }));
     }
   }
 });
 
-export const { addCountEI } = countSlice.actions;
+export const { addCountEI, resetCount } = countSlice.actions;
 export default countSlice.reducer;
