@@ -3,7 +3,7 @@
     "1": {
       "id": "1",
       "mbti": "EI",
-      "question": "퇴근길 같은방향 동료에게?",
+      "question": "지친 퇴근길 같은방향 동료에게?",
       "answer1": "눈 마주치지 말자 혼자가고 싶어",
       "answer2": "우왕 같이 말동무하며 가요"
     },
@@ -11,7 +11,7 @@
       "id": "2",
       "mbti": "NS",
       "question": "회사 동료들에게 어떤 기념품을 사다줄까?",
-      "answer1": "먹는게 남는것 실용적인 특산물 과자",
+      "answer1": "먹는게 남는 것 실용적인 특산물 과자",
       "answer2": "지역의 마스코트가 달린 귀여운 키링"
     },
     "3": {
@@ -24,7 +24,7 @@
     "4": {
       "id": "4",
       "mbti": "PJ",
-      "question": "우리팀 규칙 정할 때 나는?",
+      "question": "우리 팀 규칙 정할 때 나는?",
       "answer1": "변수명부터 사소한 거 하나까지 다 정하고 시작해야지",
       "answer2": "그때 그때 필요할 때 정하자"
     },
@@ -52,7 +52,7 @@
     "8": {
       "id": "8",
       "mbti": "PJ",
-      "question": "우리 내일 만날래?",
+      "question": "(갑작스럽게) 우리 내일 만날래?",
       "answer1": "음...",
       "answer2": "오오오 좋아!! 언제쯤?"
     },
@@ -73,7 +73,7 @@
     "11": {
       "id": "11",
       "mbti": "FT",
-      "question": "동료 사원이 우수 사원으로 발탁되었다\n내가 건낼 말은?",
+      "question": "동료 사원이 우수 사원으로 발탁되었다\n내가 건넬 말은?",
       "answer1": "축하해, 인센티브는 더 받겠다",
       "answer2": "그동안 고생했어"
     },
@@ -89,82 +89,98 @@
     "1": {
       "mbti": "INTJ",
       "title": "용의주도한 전략가",
-      "body": "목표 지향적. Github에 잔디 심어지는 모습을 보면서 큰 행복감을 느낌. 혼자 있는 것을 좋아함."
+      "body": "목표 지향적. Github에 잔디 심어지는 모습을 보면서 큰 행복감을 느낌. 혼자 있는 것을 좋아함.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/INTJ.png?alt=media&token=a19032c3-7929-4323-a7ad-73ca30d78888"
     },
     "2": {
       "mbti": "INTP",
       "title": "논리적인 사색가",
-      "body": "지적 호기심이 많아서 책을 좋아함. 그런데 게으른 성향도 있어서 책을 사고 읽지는 않음. 타고난 논리력으로 글은 잘 쓰지만, 논리적으로 말은 못 함."
+      "body": "지적 호기심이 많아서 책을 좋아함. 그런데 게으른 성향도 있어서 책을 사고 읽지는 않음. 타고난 논리력으로 글은 잘 쓰지만, 논리적으로 말은 못 함.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/INTP.png?alt=media&token=92c74c81-df91-40b3-9ecf-9592dc3371f8"
     },
     "3": {
       "mbti": "ENTJ",
       "title": "대담한 통솔자",
-      "body": "타고난 리더. 동료 개발자들을 채찍질해서 어떻게든 프로젝트 끝냄. 불도저 같은 성향으로 자칫하면 팀의 꼰대가 될 수 있음."
+      "body": "타고난 리더. 동료 개발자들을 채찍질해서 어떻게든 프로젝트 끝냄. 불도저 같은 성향으로 자칫하면 팀의 꼰대가 될 수 있음.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ENTJ.png?alt=media&token=0dd21f9f-302e-4fbf-917c-a328ddd7fa66"
     },
     "4": {
       "mbti": "ENTP",
       "title": "뜨거운 논쟁을 즐기는 변론가",
-      "body": "논쟁이나 정신적 고문을 즐기는 성격. 일단 저지르는 편이나 뒷심이 부족함. 사이드 프로젝트 할 때 도메인 먼저 구매하고 진행 안됨."
+      "body": "논쟁이나 정신적 고문을 즐기는 성격. 일단 저지르는 편이나 뒷심이 부족함. 사이드 프로젝트 할 때 도메인 먼저 구매하고 진행 안됨.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ENTP.png?alt=media&token=86679878-07cf-4cbc-a559-436e410e61d0"
     },
     "5": {
       "mbti": "INFJ",
       "title": "선의의 옹호자",
-      "body": "신중하고 완벽주의적 성향. 기본적으로 모든 사람에게 다정다감한 친절한 개발자. (단, 속마음은 다를 수 있음.)"
+      "body": "신중하고 완벽주의적 성향. 기본적으로 모든 사람에게 다정다감한 친절한 개발자. (단, 속마음은 다를 수 있음.)",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/INFJ.png?alt=media&token=dd6212df-6fd6-43b1-9681-5e0fa9c35094"
     },
     "6": {
       "mbti": "INFP",
       "title": "열정적인 중재자",
-      "body": "진정한 이상주의자. 버그가 난무하는 최악의 상황도 긍정적으로 만들려고 노력함. 감정 기복이 심하고 개복치와 같은 멘탈의 소유자."
+      "body": "진정한 이상주의자. 버그가 난무하는 최악의 상황도 긍정적으로 만들려고 노력함. 감정 기복이 심하고 개복치와 같은 멘탈의 소유자.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/INFP.png?alt=media&token=22d13337-5094-430a-8ebe-a26b59ae3a78"
     },
     "7": {
       "mbti": "ENFJ",
       "title": "정의로운 사회활동가",
-      "body": "진심으로 사람을 믿고 이끄는 지도자. 다른 사람의 성장을 옆에서 돕고 영향을 미칠 때 보람을 느낌. 마음에서 우러나 타인에게 관심을 보이지만 간혹 도를 지나침."
+      "body": "진심으로 사람을 믿고 이끄는 지도자. 다른 사람의 성장을 옆에서 돕고 영향을 미칠 때 보람을 느낌. 마음에서 우러나 타인에게 관심을 보이지만 간혹 도를 지나침.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ENFJ.png?alt=media&token=68851e0b-e2c2-4cbf-9171-e06399a6ec58"
     },
     "8": {
       "mbti": "ENFP",
       "title": "재기발랄한 활동가",
-      "body": "자유로운 사고의 소유자이며, 분위기 메이커. 창의력에 발동이 걸리면 주목받는 주인공이 되어 리더 혹은 전문가로 추앙 받음."
+      "body": "자유로운 사고의 소유자이며, 분위기 메이커. 창의력에 발동이 걸리면 주목받는 주인공이 되어 리더 혹은 전문가로 추앙 받음.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ENFP.jpg?alt=media&token=32505df2-9c8d-462a-9c4a-5dde6dcfcd50"
     },
     "9": {
       "mbti": "ISTJ",
       "title": "청렴결백한 논리주의자",
-      "body": "필요한 일만 정확하게 처리함. 물건 사면 설명서 꼭 읽어봄. 남들과 같이 일하는 것 보다 혼자 일하는 것이 효율적."
+      "body": "필요한 일만 정확하게 처리함. 물건 사면 설명서 꼭 읽어봄. 남들과 같이 일하는 것 보다 혼자 일하는 것이 효율적.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ISTJ.jpg?alt=media&token=8ab64877-d94d-4d1c-a72d-099844d0ff28"
     },
     "10": {
       "mbti": "ISFJ",
       "title": "용감한 수호자",
-      "body": "정의하는 성격 특성에 꼭 들어맞지 않는다는 것이 특징. 겸손한 유형이 많고, 내 업적과 실적을 드러내는 것이 어색함"
+      "body": "정의하는 성격 특성에 꼭 들어맞지 않는다는 것이 특징. 겸손한 유형이 많고, 내 업적과 실적을 드러내는 것이 어색함",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ISFJ.jpg?alt=media&token=cd399dcc-76b9-4916-9199-8207fb7e6e1f"
     },
     "11": {
       "mbti": "ESTJ",
       "title": "엄격한 관리자",
-      "body": "사물이나 사람을 관리하는 데 타의 추종을 불허하는 뛰어난 실력을 갖춘 관리자. 주변 사람들한테 일해라 운동해라 공부해라 뼈 때림."
+      "body": "사물이나 사람을 관리하는 데 타의 추종을 불허하는 뛰어난 실력을 갖춘 관리자. 주변 사람들한테 일해라 운동해라 공부해라 뼈 때림.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ESTJ.png?alt=media&token=00638dde-f303-4908-915f-867e56ff9471"
     },
     "12": {
       "mbti": "ESFJ",
       "title": "사교적인 외교관",
-      "body": "분위기를 이끄는 인기인. 조화로운 인간관계를 추구하며, 타인을 돕는 일에 열성적. 즉흥적인 만남이나 계획을 좋아하나 거절당하면 상처받음."
+      "body": "분위기를 이끄는 인기인. 조화로운 인간관계를 추구하며, 타인을 돕는 일에 열성적. 즉흥적인 만남이나 계획을 좋아하나 거절당하면 상처받음.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ESFJ.png?alt=media&token=5e65b2e3-2ee2-4fa2-adce-6ee7d190100b"
     },
     "13": {
       "mbti": "ISTP",
       "title": "만능 재주꾼",
-      "body": "냉철한 이성주의적 성향과 왕성한 호기심을 가진 만능 재주꾼. 실생활에 유용하면서도 자질구레한 것들을 취미 삼아 만드는 것을 좋아함."
+      "body": "냉철한 이성주의적 성향과 왕성한 호기심을 가진 만능 재주꾼. 실생활에 유용하면서도 자질구레한 것들을 취미 삼아 만드는 것을 좋아함.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ISTP.png?alt=media&token=8fa4328c-31e2-4eb3-b800-80128adfa02e"
     },
     "14": {
       "mbti": "ISFP",
       "title": "호기심 많은 예술가",
-      "body": "규칙, 관습을 싫어하며, 항상 도전할 준비가 되어있음. 적절한 비판은 긍정적으로 받아들이나 과도한 비판에는 분노함."
+      "body": "규칙, 관습을 싫어하며, 항상 도전할 준비가 되어있음. 적절한 비판은 긍정적으로 받아들이나 과도한 비판에는 분노함.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ISFP.png?alt=media&token=6eb8fe0d-a399-4296-b1f8-2a7346413c85"
     },
     "15": {
       "mbti": "ESTP",
       "title": "모험을 즐기는 사업가",
-      "body": "주변의 이목을 끄는 것을 좋아함. 장기자랑 때 자발적으로 손들고 앞에 나가는 스타일. 예리하고 관찰력이 좋아서 다른 사람의 작은 변화조차도 정확히 집어냄."
+      "body": "주변의 이목을 끄는 것을 좋아함. 장기자랑 때 자발적으로 손들고 앞에 나가는 스타일. 예리하고 관찰력이 좋아서 다른 사람의 작은 변화조차도 정확히 집어냄.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ESTP.png?alt=media&token=a23b1fbc-95ab-4426-a34a-e390bb74a8b4"
     },
     "16": {
       "mbti": "ESFP",
       "title": "자유로운 영혼의 연예인",
-      "body": "타고난 연예인. 주목받는 것을 좋아하고 학교나 직장에서 모르는 사람이 없음. 오늘의 행복을 위해 소비하고, 다음 달에 카드값이 왜 이렇게 많이 나왔는지 고민함."
+      "body": "타고난 연예인. 주목받는 것을 좋아하고 학교나 직장에서 모르는 사람이 없음. 오늘의 행복을 위해 소비하고, 다음 달에 카드값이 왜 이렇게 많이 나왔는지 고민함.",
+      "img": "https://firebasestorage.googleapis.com/v0/b/my-developer-type-test.appspot.com/o/ESFP.png?alt=media&token=8565634f-1e08-4cf5-bd60-45595bee24db"
     }
   }
 }

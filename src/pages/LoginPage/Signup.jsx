@@ -4,9 +4,8 @@ import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import shortid from 'shortid';
 import { useDispatch } from 'react-redux';
-import { updateCurrentUser } from '../../redux/modules/users';
-import LoginDiv, {Input} from './Loginpage.styled';
-
+import { updateCurrentUser } from 'firebase/auth';
+import LoginDiv, { Input } from './Loginpage.styled';
 
 function Signup() {
   const navigate = useNavigate();
@@ -21,17 +20,14 @@ function Signup() {
 
     if (PW !== PWConfirm) return alert('비밀번호와 비밀번호 확인이 다릅니다!');
     if (PW.length < 6) return alert('비밀번호 6자리 이상 입력 해주세요!');
-    
+
     try {
-        // 유저 email, pw 생성
-        const userCredential = await createUserWithEmailAndPassword(auth, Email, PW);
-        const user = userCredential.user;
-    
-      
-    
-        // Dispatch 
-        dispatch(updateCurrentUser(user));
-    
+      // 유저 email, pw 생성
+      const userCredential = await createUserWithEmailAndPassword(auth, Email, PW);
+      const user = userCredential.user;
+
+      // Dispatch
+      dispatch(updateCurrentUser(user));
 
       alert('회원가입 완료!');
       navigate('/');
@@ -52,28 +48,28 @@ function Signup() {
         <span>Sign Up</span>
         <br></br>
         <label>EMAIL</label>
-        <Input
+        <input
           type="email"
           placeholder="이메일을 입력하세요."
           value={Email}
           name="Email"
           onChange={(e) => setEmail(e.currentTarget.value)}
-        ></Input>
+        ></input>
         <label>PASSWORD</label>
-        <Input
+        <input
           type="password"
           placeholder="비밀번호"
           value={PW}
           name="password"
           onChange={(e) => setPW(e.currentTarget.value)}
-        ></Input>
-        <Input
+        ></input>
+        <input
           type="password"
           placeholder="비밀번호확인"
           value={PWConfirm}
           name="PWConfirm"
           onChange={(e) => setPWConfirm(e.currentTarget.value)}
-        ></Input>
+        ></input>
         <br></br>
         <button onClick={signupFunc}> 회원가입</button>
         <br></br>

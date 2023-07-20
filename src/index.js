@@ -4,7 +4,6 @@ import App from './App';
 import store from './redux/config/configStore';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Survey from './pages/Survey';
 
 const queryClient = new QueryClient();
 

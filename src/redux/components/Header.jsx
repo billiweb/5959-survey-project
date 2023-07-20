@@ -1,14 +1,43 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 const Header = () => {
-  return <StHeader>오구오구</StHeader>;
+  return (
+    <>
+      <StHeader>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Logo>오구오구</Logo>
+        </Link>
+      </StHeader>
+      <Outlet />;
+    </>
+  );
 };
 
-export default Header;
+const StHeader = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
-const StHeader = styled.div`
-  background-color: #282828;
-  color: white;
-  padding: 20px;
+  height: 75px;
+  padding: 1rem;
+  background-color: pink;
+  /* background-color: transparent; */
+
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 1px 1px 5px gray;
 `;
+const Logo = styled.h1`
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+`;
+
+export default Header;
