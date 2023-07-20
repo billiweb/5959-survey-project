@@ -31,6 +31,7 @@ const MainAll = styled.div`
   height: 300px;
   z-index: 9999;
   position: fixed;
+  margin-top: 100px;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);

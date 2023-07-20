@@ -1,15 +1,20 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <StHeader>
-      <Logo>오구오구</Logo>
-    </StHeader>
+    <>
+      <StHeader>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Logo>오구오구</Logo>
+        </Link>
+      </StHeader>
+      <Outlet />;
+    </>
   );
 };
-
-export default Header;
 
 const StHeader = styled.header`
   position: fixed;
@@ -34,3 +39,5 @@ const Logo = styled.h1`
   color: white;
   cursor: pointer;
 `;
+
+export default Header;
