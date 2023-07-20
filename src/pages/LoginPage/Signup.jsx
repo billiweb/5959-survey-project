@@ -26,11 +26,10 @@ function Signup() {
       const userCredential = await createUserWithEmailAndPassword(auth, Email, PW);
       const user = userCredential.user;
 
+      alert('회원가입 완료!');
+      navigate('/login');
       // Dispatch
       dispatch(updateCurrentUser(user));
-
-      alert('회원가입 완료!');
-      navigate('/');
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;

@@ -17,6 +17,7 @@ function Login() {
     if (!(Email || PW)) {
       return alert('모든 값을 채워주세요.');
     }
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, Email, PW);
 
