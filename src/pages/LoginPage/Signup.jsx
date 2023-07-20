@@ -21,6 +21,8 @@ function Signup() {
     if (PW !== PWConfirm) return alert('비밀번호와 비밀번호 확인이 다릅니다!');
     if (PW.length < 6) return alert('비밀번호 6자리 이상 입력 해주세요!');
 
+    if (Email === Email) return alert('이미 가입된 이메일입니다.');
+
     try {
       // 유저 email, pw 생성
       const userCredential = await createUserWithEmailAndPassword(auth, Email, PW);
