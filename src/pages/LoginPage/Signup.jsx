@@ -26,6 +26,8 @@ function Signup() {
       const userCredential = await createUserWithEmailAndPassword(auth, Email, PW);
       const user = userCredential.user;
 
+      console.log('>>>', user);
+
       alert('회원가입 완료!');
       navigate('/login');
       // Dispatch

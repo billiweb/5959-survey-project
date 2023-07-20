@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
 import { resetCount } from '../redux/modules/countSlice';
 import html2canvas from 'html2canvas';
+import { auth } from '../firebase';
 
 // import { useRef } from 'react';
 
@@ -64,21 +65,9 @@ const Result = () => {
     return <div>Error occurred: {error.message}</div>;
   }
 
-  // // url 복사
-  // const copyUrlRef = useRef(null);
+  const userEmail = auth.currentUser.email;
+  const name = userEmail.split('@')[0];
 
-  // const copyUrl = () => {
-  //   const currentUrl = window.location.href; // 현재 페이지 URL 가져오기
-  //   const additionalPath = `detail/`; // 추가할 경로
-
-  //   const newUrl = currentUrl + additionalPath; // 현재 URL에 추가 경로를 붙임
-  //   copyUrlRef.current.value = newUrl; // 복사할 URL을 참조하는 input 요소에 새로운 URL 설정
-
-  //   copyUrlRef.current.select();
-  //   document.execCommand('copy');
-
-  //   alert('링크가 복사되었습니다.');
-  // };
   const resetButton = () => {
     dispatch(resetCount());
     navigate('/survey/1');
@@ -110,9 +99,10 @@ const Result = () => {
         .map((mbti) => {
           return (
             <PostContainer key={mbti.mbti} id="captureThis">
+              <h1>{mbti.mbti}</h1>
               <StImage src={mbti.img} alt="이미지 없음" />
               <h3>
-                {mbti.mbti} - {mbti.title}
+                {name} 님은 "{mbti.title}" 입니다 😀
               </h3>
               <p>{mbti.body}</p>
             </PostContainer>
@@ -167,7 +157,7 @@ const Icon = styled.img`
   margin-right: 15px;
 `;
 
-const PostContainer = styled.div`
+const PostContainer = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
