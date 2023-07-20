@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 const LoginDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: auto;
+  //맨 앞으로 나올 수 있게
   position: fixed;
+  //중앙에 위치하게
   top: 45%;
   left: 50%;
-  margin-top: 20px;
   transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   span {
     font-size: 42px;
