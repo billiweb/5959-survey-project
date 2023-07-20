@@ -26,7 +26,6 @@ function Survey() {
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery('survey', async () => {
-
     const response = await axios.get('https://aquatic-respected-tuba.glitch.me/survey');
 
     return response.data;
@@ -94,8 +93,9 @@ function Survey() {
 export default Survey;
 
 const PageContainer = styled.div`
-  width: 800px;
-  height: 500px;
+  /* width: 800px; */
+  /* height: 500px; */
+  /* max-width: 500px; */
   position: fixed;
   top: 40%;
   left: 50%;
@@ -105,10 +105,20 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5%;
+  /* padding-left: 5%; */
+  padding: 10%;
 
   box-shadow: 1px 1px 5px gray;
   font-size: 20px;
+  /* max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 1px 1px 5px gray;
+  font-size: 20px; */
 `;
 
 const Button = styled.button`

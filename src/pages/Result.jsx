@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
 import { resetCount } from '../redux/modules/countSlice';
-import html2canvas from 'html2canvas';
-import { auth } from '../firebase';
 
 // import { useRef } from 'react';
 
@@ -14,8 +12,7 @@ const Result = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data, isLoading, error } = useQuery('mbti', async () => {
-    const response = await axios.get('https://aquatic-respected-tuba.glitch.me/mbti');
-
+    const response = await axios.get('http://localhost:3001/mbti');
     return response.data;
   });
 
@@ -66,53 +63,44 @@ const Result = () => {
     return <div>Error occurred: {error.message}</div>;
   }
 
-  const userEmail = auth.currentUser.email;
-  const name = userEmail.split('@')[0];
+  // // url 복사
+  // const copyUrlRef = useRef(null);
 
+  // const copyUrl = () => {
+  //   const currentUrl = window.location.href; // 현재 페이지 URL 가져오기
+  //   const additionalPath = `detail/`; // 추가할 경로
+
+  //   const newUrl = currentUrl + additionalPath; // 현재 URL에 추가 경로를 붙임
+  //   copyUrlRef.current.value = newUrl; // 복사할 URL을 참조하는 input 요소에 새로운 URL 설정
+
+  //   copyUrlRef.current.select();
+  //   document.execCommand('copy');
+
+  //   alert('링크가 복사되었습니다.');
+  // };
   const resetButton = () => {
     dispatch(resetCount());
     navigate('/survey/1');
   };
-
-  const handleCaptureClick = () => {
-    const elementToCapture = document.getElementById('captureThis'); // 캡처할 요소의 ID
-
-    html2canvas(elementToCapture).then((canvas) => {
-      // 캡처된 이미지 데이터를 얻습니다.
-      const capturedImageURL = canvas.toDataURL('image/png');
-
-      // 이미지를 컴퓨터에 저장하기 위한 링크를 생성합니다.
-      const downloadLink = document.createElement('a');
-      downloadLink.href = capturedImageURL;
-      downloadLink.download = 'captured_image.png';
-
-      // 링크를 클릭하여 이미지를 다운로드합니다.
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  };
-
   return (
     <PageContainer>
       {newData
         .filter((mbti) => list === mbti.mbti)
         .map((mbti) => {
           return (
-            <PostContainer key={mbti.mbti} id="captureThis">
-              <h1>{mbti.mbti}</h1>
+            <PostContainer key={mbti.mbti}>
               <StImage src={mbti.img} alt="이미지 없음" />
               <h3>
-                {name} 님은 "{mbti.title}" 입니다 😀
+                {mbti.mbti} - {mbti.title}
               </h3>
               <p>{mbti.body}</p>
             </PostContainer>
           );
         })}
       <ButtonContainer>
-        <Button onClick={handleCaptureClick}>
+        <Button>
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
-          저장하기
+          공유하기
         </Button>
         <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
           다시하기
@@ -158,7 +146,7 @@ const Icon = styled.img`
   margin-right: 15px;
 `;
 
-const PostContainer = styled.form`
+const PostContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
