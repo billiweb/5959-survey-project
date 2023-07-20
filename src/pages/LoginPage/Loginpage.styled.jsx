@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 const LoginDiv = styled.div`
-  display: flex;
-  justify-content: center;
   width: auto;
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%, -50%);
+  display: flex;
   align-items: center;
-  height: 80vh;
+  justify-content: center;
 
   span {
-    font-size: 50px;
+    font-size: 42px;
     text-align: center;
     padding: 10px;
   }

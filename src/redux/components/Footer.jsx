@@ -7,14 +7,13 @@ import { styled } from 'styled-components';
 //     margin-bottom: 13px;
 //   }
 const FooterContainer = styled.div`
-  /* position: fixed; */
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 160px;
   font-size: 13px;
 
-  margin-top: 900px;
   display: flex;
   flex-direction: column;
   justify-content: center;
