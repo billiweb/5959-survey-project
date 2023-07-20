@@ -17,11 +17,10 @@ function Login() {
     if (!(Email || PW)) {
       return alert('모든 값을 채워주세요.');
     }
-
     try {
       const userCredential = await signInWithEmailAndPassword(auth, Email, PW);
 
-      navigate('/');
+      navigate('/survey/1');
     } catch (error) {
       console.log(error.code);
       if (error.code === 'auth/user-not-found') {
