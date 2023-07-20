@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 // import { useRef } from 'react';
 
@@ -88,12 +89,17 @@ const Result = () => {
             </div>
           );
         })}
-      <Button>
-        {/* onClick={copyUrl}> */}
-        <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
-        공유하기
-      </Button>
-      {/* <TextArea readOnly ref={copyUrlRef} value={window.location.href}></TextArea> */}
+      <div>
+        <Button>
+          {/* onClick={copyUrl}> */}
+          <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
+          공유하기
+        </Button>
+        {/* <TextArea readOnly ref={copyUrlRef} value={window.location.href}></TextArea> */}
+        <Link to="/survey/:id" style={{ textDecoration: 'none' }}>
+          <Button style={{ marginLeft: '20px' }}>다시하기</Button>
+        </Link>
+      </div>
     </PageContainer>
   );
 };
@@ -104,6 +110,7 @@ const PageContainer = styled.div`
   width: 800px;
   height: 700px;
   position: fixed;
+  margin-top: 100px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

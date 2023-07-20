@@ -52,6 +52,7 @@ const LoginAll = styled.div`
   height: 500px;
   /* z-index: 9999; */
   position: fixed;
+  margin-top: 100px;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);

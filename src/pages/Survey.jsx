@@ -72,16 +72,16 @@ function Survey() {
         if (page == post.id)
           return (
             <PageContainer key={post.id}>
-              <p>{post.id}</p>
+              {/* <p>{post.id}</p> */}
               <p>{post.type}</p>
-              <p>{post.mbti}</p>
+              {/* <p>{post.mbti}</p> */}
               <p>질문 : {post.question}</p>
               <Button onClick={() => nextButtonPlusHandler(post)}>A : {post.answer1}</Button>
               <Button onClick={() => nextButtonStayHandler(post)}>B : {post.answer2}</Button>
-              <p>counEI : {countEI}</p>
+              {/* <p>counEI : {countEI}</p>
               <p>counNS : {countNS}</p>
               <p>counFT : {countFT}</p>
-              <p>counPJ : {countPJ}</p>
+              <p>counPJ : {countPJ}</p> */}
             </PageContainer>
           );
       })}
@@ -97,6 +97,7 @@ const PageContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
+  margin-top: 100px;
   transform: translate(-50%, -50%);
   border-radius: 15px;
   display: flex;
