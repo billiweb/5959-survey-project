@@ -1,10 +1,17 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
+import { resetCount } from '../redux/modules/countSlice';
+import { auth } from '../firebase';
+
+// import { useRef } from 'react';
 
 const Result = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { data, isLoading, error } = useQuery('mbti', async () => {
     const response = await axios.get('http://localhost:3001/mbti');
     return response.data;
@@ -57,22 +64,40 @@ const Result = () => {
     return <div>Error occurred: {error.message}</div>;
   }
 
+  const userEmail = auth.currentUser.email;
+  const name = userEmail.split('@')[0];
+
+  const resetButton = () => {
+    dispatch(resetCount());
+    navigate('/survey/1');
+  };
+
   return (
     <PageContainer>
       {newData
         .filter((mbti) => list === mbti.mbti)
         .map((mbti) => {
           return (
-            <div key={mbti.mbti}>
+            <PostContainer key={mbti.mbti}>
+              <h1>{mbti.mbti}</h1>
+              <StImage src={mbti.img} alt="이미지 없음" />
               <h3>
-                {mbti.mbti} - {mbti.title}
+                {name} 님은 "{mbti.title}" 입니다 😀
               </h3>
               <p>{mbti.body}</p>
-              <img src={mbti.img} alt="이미지 없음" />
-            </div>
+            </PostContainer>
           );
         })}
-      <Button>공유하기</Button>
+      <ButtonContainer>
+        <Button>
+          <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
+          공유하기
+        </Button>
+        <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
+          다시하기
+        </Button>
+        {/* </Link> */}
+      </ButtonContainer>
     </PageContainer>
   );
 };
@@ -80,28 +105,58 @@ const Result = () => {
 export default Result;
 
 const PageContainer = styled.div`
-  border: 1px solid black;
-  width: 350px;
-  padding: 10px;
-  margin: 20px auto;
+  width: 800px;
+  height: 700px;
+  position: fixed;
+  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding-left: 5%;
+
+  box-shadow: 1px 1px 5px gray;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
-  width: 90%;
-  margin: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  width: 200px;
+  padding: 20px auto 20px auto;
+  font-size: 20px;
+  background-color: pink;
+  border: 2px solid gray;
 `;
 
-// E : 0,1
-// I : 2,3
+const Icon = styled.img`
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+`;
 
-// N : 0,1
-// S : 2,3
+const PostContainer = styled.form`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 100px;
+`;
 
-// F : 0,1
-// T : 2,3
+const StImage = styled.img`
+  justify-content: center;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+`;
 
-// P : 0,1
-// J : 2,3
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+`;

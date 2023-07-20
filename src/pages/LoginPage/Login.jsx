@@ -21,7 +21,7 @@ function Login() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, Email, PW);
 
-      navigate('/');
+      navigate('/survey/1');
     } catch (error) {
       console.log(error.code);
       if (error.code === 'auth/user-not-found') {

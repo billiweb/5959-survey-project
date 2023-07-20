@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addCountEI } from '../redux/modules/countSlice';
+import { auth } from '../firebase';
 
 function Survey() {
   const countEI = useSelector(function (state) {
@@ -58,6 +59,9 @@ function Survey() {
     }
   };
 
+  const userEmail = auth.currentUser.email;
+  const name = userEmail.split('@')[0];
+
   const nextButtonStayHandler = (post) => {
     if (page !== 12) {
       setPage(page + 1);
@@ -72,16 +76,12 @@ function Survey() {
         if (page == post.id)
           return (
             <PageContainer key={post.id}>
-              <p>{post.id}</p>
+              <h3>{name} 님의 테스트 진행중 ...</h3>
+              <ProgressBar value={post.id * 8.33} max="100"></ProgressBar>
               <p>{post.type}</p>
-              <p>{post.mbti}</p>
               <p>질문 : {post.question}</p>
               <Button onClick={() => nextButtonPlusHandler(post)}>A : {post.answer1}</Button>
               <Button onClick={() => nextButtonStayHandler(post)}>B : {post.answer2}</Button>
-              <p>counEI : {countEI}</p>
-              <p>counNS : {countNS}</p>
-              <p>counFT : {countFT}</p>
-              <p>counPJ : {countPJ}</p>
             </PageContainer>
           );
       })}
@@ -92,11 +92,21 @@ function Survey() {
 export default Survey;
 
 const PageContainer = styled.div`
-  border: 1px solid black;
-  width: 350px;
-  padding: 10px;
-  margin: 20px auto;
+  width: 800px;
+  height: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding-left: 5%;
+
+  box-shadow: 1px 1px 5px gray;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
@@ -104,4 +114,13 @@ const Button = styled.button`
   margin: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 20px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ebebeb;
+`;
+
+const ProgressBar = styled.progress`
+  width: 90%;
 `;
