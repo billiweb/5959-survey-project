@@ -68,6 +68,7 @@ const Result = () => {
                 {mbti.mbti} - {mbti.title}
               </h3>
               <p>{mbti.body}</p>
+              <img src={mbti.img} alt="이미지 없음" />
             </div>
           );
         })}
