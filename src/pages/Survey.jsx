@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addCountEI } from '../redux/modules/countSlice';
+import { auth } from '../firebase';
 
 function Survey() {
   const countEI = useSelector(function (state) {
@@ -58,6 +59,9 @@ function Survey() {
     }
   };
 
+  const userEmail = auth.currentUser.email;
+  const name = userEmail.split('@')[0];
+
   const nextButtonStayHandler = (post) => {
     if (page !== 12) {
       setPage(page + 1);
@@ -72,7 +76,7 @@ function Survey() {
         if (page == post.id)
           return (
             <PageContainer key={post.id}>
-              <h3> 님의 테스트 진행중 ...</h3>
+              <h3>{name} 님의 테스트 진행중 ...</h3>
               <ProgressBar value={post.id * 8.33} max="100"></ProgressBar>
               <p>{post.type}</p>
               <p>질문 : {post.question}</p>
