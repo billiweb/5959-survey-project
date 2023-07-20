@@ -14,7 +14,7 @@ const Result = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data, isLoading, error } = useQuery('mbti', async () => {
-    const response = await axios.get('http://localhost:3001/mbti');
+    const response = await axios.get('https://aquatic-respected-tuba.glitch.me/mbti');
     return response.data;
   });
 

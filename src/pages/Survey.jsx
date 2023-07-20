@@ -26,7 +26,7 @@ function Survey() {
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery('survey', async () => {
-    const response = await axios.get('http://localhost:3001/survey');
+    const response = await axios.get('https://aquatic-respected-tuba.glitch.me/survey');
     return response.data;
   });
 
