@@ -136,11 +136,7 @@ export default Result;
 const PageContainer = styled.div`
   width: 800px;
   height: auto;
-  position: fixed;
-
-  top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 30px auto 0px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -173,13 +169,11 @@ const PostContainer = styled.form`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  //padding: 10px 100px;
 `;
 
 const StImage = styled.img`
   justify-content: center;
   margin: 10px auto;
-  //
   border-radius: 100%;
   width: 150px;
   height: 150px;

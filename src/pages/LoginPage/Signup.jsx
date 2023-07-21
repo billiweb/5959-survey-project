@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import shortid from 'shortid';
+import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { updateCurrentUser } from 'firebase/auth';
-import LoginDiv, { Input } from './Loginpage.styled';
+import LoginDiv, { input } from './Loginpage.styled';
 
 function Signup() {
   const navigate = useNavigate();
@@ -21,9 +20,11 @@ function Signup() {
     if (PW !== PWConfirm) return alert('비밀번호와 비밀번호 확인이 다릅니다!');
     if (PW.length < 6) return alert('비밀번호 6자리 이상 입력 해주세요!');
 
-    if (Email === Email) return alert('이미 가입된 이메일입니다.');
-
     try {
+      const signInMethods = await fetchSignInMethodsForEmail(auth, Email);
+      if (signInMethods.length > 0) {
+        return alert('이미 가입된 이메일 주소입니다.');
+      }
       // 유저 email, pw 생성
       const userCredential = await createUserWithEmailAndPassword(auth, Email, PW);
       const user = userCredential.user;

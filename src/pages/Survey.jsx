@@ -95,18 +95,14 @@ export default Survey;
 const PageContainer = styled.div`
   width: 800px;
   height: auto;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-
-  transform: translate(-50%, -40%);
+  margin: 30px auto 10px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 5%;
   padding-bottom: 30px;
-
+  padding-top: 5px;
   box-shadow: 1px 1px 5px gray;
   font-size: 20px;
 `;
