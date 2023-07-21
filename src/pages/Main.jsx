@@ -32,7 +32,7 @@ const MainAll = styled.div`
   z-index: 9999;
   position: fixed;
   margin-top: 100px;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
