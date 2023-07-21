@@ -19,7 +19,9 @@ const Layout = () => {
           <Logo>오구오구</Logo>
         </Link>
       </header>
-      <Outlet />
+      <div style={{ paddingTop: '75px', paddingBottom: '160px' }}>
+        <Outlet />
+      </div>
       <footer
         style={{
           marginTop: '24px',
@@ -57,14 +59,14 @@ const Layout = () => {
 };
 
 export default Layout;
+
 const FooterContainer = styled.div`
+  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
   height: 160px;
   font-size: 13px;
-
-  /* margin-top: 900px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +78,6 @@ const FooterContainer = styled.div`
 const Ul = styled.ul`
   list-style: none;
   border-left: 1px solid #c6c6c6;
-
   text-decoration: none;
   color: gray;
   display: flex;
