@@ -9,6 +9,10 @@ const Layout = () => {
       <header
         style={{
           display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
           justifyContent: 'space-between',
           padding: '24px',
           backgroundColor: 'pink',
@@ -19,17 +23,13 @@ const Layout = () => {
           <Logo>오구오구</Logo>
         </Link>
       </header>
-      <div style={{ paddingTop: '75px', paddingBottom: '160px' }}>
+      <div style={{ paddingTop: '75px', paddingBottom: '120px' }}>
         <Outlet />
       </div>
       <footer
         style={{
-          marginTop: '24px',
           display: 'flex',
-          justifyContent: 'space-between',
-          padding: '24px',
-          backgroundColor: '#EEEEEE',
-          color: 'black'
+          justifyContent: 'space-between'
         }}
       >
         <FooterContainer>
@@ -61,7 +61,6 @@ const Layout = () => {
 export default Layout;
 
 const FooterContainer = styled.div`
-  /* position: fixed; */
   bottom: 0;
   left: 0;
   width: 100%;
