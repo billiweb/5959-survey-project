@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from 'firebase/auth';
-import shortid from 'shortid';
 import { useDispatch } from 'react-redux';
 import { updateCurrentUser } from 'firebase/auth';
 import LoginDiv, { input } from './Loginpage.styled';
