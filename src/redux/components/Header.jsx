@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+
 import Footer from './Footer';
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
           <Logo>오구오구</Logo>
         </Link>
       </StHeader>
-      <Outlet />;
+
       <Footer />
     </>
   );
