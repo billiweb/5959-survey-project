@@ -82,6 +82,9 @@ const Result = () => {
     dispatch(resetCount());
     navigate('/survey/1');
   };
+  const handleOtherResults = () => {
+    navigate('/other-results', { state: { currentMBTI: list, allResults: newData } });
+  };
   return (
     <PageContainer>
       {newData
@@ -108,6 +111,9 @@ const Result = () => {
         <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
           다시하기
         </Button>
+        <button onClick={handleOtherResults} style={{ marginLeft: '20px' }}>
+          다른 결과 보기
+        </button>
         {/* </Link> */}
       </div>
     </PageContainer>
