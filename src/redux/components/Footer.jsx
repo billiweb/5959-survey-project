@@ -11,7 +11,8 @@ const FooterContainer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 230px;
+  height: 160px;
+  font-size: 13px;
 
   /* margin-top: 900px; */
   display: flex;

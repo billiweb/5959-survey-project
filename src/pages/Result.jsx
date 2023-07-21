@@ -127,20 +127,21 @@ export default Result;
 
 const PageContainer = styled.div`
   width: 800px;
-  height: 700px;
+  height: auto;
   position: fixed;
-  margin-top: 20px;
-  top: 42%;
+
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
 
   box-shadow: 1px 1px 5px gray;
-  font-size: 20px;
+  font-size: 17px;
 `;
 
 const Button = styled.button`
@@ -163,16 +164,16 @@ const PostContainer = styled.form`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 10px 100px;
+  //padding: 10px 100px;
 `;
 
 const StImage = styled.img`
   justify-content: center;
   margin: 10px auto;
-  padding: 20px;
+  //
   border-radius: 100%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 `;
 
@@ -180,4 +181,5 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+  padding-bottom: 20px;
 `;
