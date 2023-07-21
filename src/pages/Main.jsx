@@ -22,19 +22,10 @@ const Main = () => {
 export default Main;
 
 const MainAll = styled.div`
-  /* margin-top: 200px;
-  margin-left: 30%;
-
-  background-color: green;
-  width: 500px; */
   width: 800px;
   height: 300px;
   z-index: 9999;
-  position: fixed;
-  margin-top: 100px;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 30px auto 0px auto;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -43,8 +34,6 @@ const MainAll = styled.div`
   align-items: center;
 
   background-color: white;
-  /* border: 1px solid gainsboro; */
-
   box-shadow: 1px 1px 5px gainsboro;
 `;
 
@@ -60,4 +49,5 @@ const StartBtn = styled.button`
   background-color: pink;
   cursor: pointer;
   border-radius: 10px;
+  border: none;
 `;

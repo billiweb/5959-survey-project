@@ -4,9 +4,10 @@ import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
-import { resetCount } from '../redux/modules/countSlice';
+import { resetCount } from '../../redux/modules/countSlice';
 import html2canvas from 'html2canvas';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
+// import imgLogo from '../정방형1.jpg';
 
 // import { useRef } from 'react';
 
@@ -101,7 +102,10 @@ const Result = () => {
           return (
             <PostContainer key={mbti.mbti} id="captureThis">
               <h1>{mbti.mbti}</h1>
+              {/* html2canvas에 이미지 캡처 오류가 있음 */}
               <StImage src={mbti.img} alt="이미지 없음" />
+              {/* 아래와 같이 서버 내부에 파일이 존재할 경우 이미지 캡처에 문제가 없음
+              <StImage src={imgLogo} alt="이미지 없음" /> */}
               <h3>
                 {name} 님은 "{mbti.title}" 입니다 😀
               </h3>
@@ -114,10 +118,14 @@ const Result = () => {
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
           저장하기
         </Button>
-        <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
-          다시하기
+        <Button onClick={() => resetButton()}>다시하기</Button>
+        <Button
+          onClick={() => {
+            navigate('/allresult');
+          }}
+        >
+          모든 결과 보러가기
         </Button>
-        {/* </Link> */}
       </ButtonContainer>
     </PageContainer>
   );
@@ -127,28 +135,30 @@ export default Result;
 
 const PageContainer = styled.div`
   width: 800px;
-  height: 700px;
-  position: fixed;
-  margin-top: 20px;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: auto;
+  margin: 30px auto 0px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
 
   box-shadow: 1px 1px 5px gray;
-  font-size: 20px;
+  font-size: 17px;
 `;
 
 const Button = styled.button`
   width: 200px;
   padding: 20px auto 20px auto;
   font-size: 20px;
-  background-color: pink;
-  border: 2px solid gray;
+  background-color: #fac8d1;
+  border: none;
+  border-radius: 10px;
+  color: #474646;
+  /* text-shadow: 1px 1px black; */
+
+  margin-left: 20px;
 `;
 
 const Icon = styled.img`
@@ -163,16 +173,14 @@ const PostContainer = styled.form`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 10px 100px;
 `;
 
 const StImage = styled.img`
   justify-content: center;
   margin: 10px auto;
-  padding: 20px;
   border-radius: 100%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 `;
 
@@ -180,4 +188,5 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+  padding-bottom: 20px;
 `;

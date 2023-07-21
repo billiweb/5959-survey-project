@@ -3,12 +3,10 @@ import styled from 'styled-components';
 const LoginDiv = styled.div`
   display: flex;
   justify-content: center;
-  width: auto;
   align-items: center;
-  height: 80vh;
-
+  width: auto;
   span {
-    font-size: 50px;
+    font-size: 42px;
     text-align: center;
     padding: 10px;
   }

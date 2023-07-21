@@ -26,7 +26,6 @@ function Survey() {
   const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery('survey', async () => {
-
     const response = await axios.get('https://aquatic-respected-tuba.glitch.me/survey');
 
     return response.data;
@@ -95,18 +94,15 @@ export default Survey;
 
 const PageContainer = styled.div`
   width: 800px;
-  height: 500px;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  margin-top: 20px;
-  transform: translate(-50%, -50%);
+  height: 300px;
+  margin: 30px auto 10px auto;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 5%;
-
+  padding-bottom: 30px;
+  padding-top: 5px;
   box-shadow: 1px 1px 5px gray;
   font-size: 20px;
 `;
@@ -125,4 +121,14 @@ const Button = styled.button`
 
 const ProgressBar = styled.progress`
   width: 90%;
+  /* ProgressBar의 배경색 */
+  background: #f1f1f1;
+
+  /* ProgressBar의 채워지는 부분의 색상 (여기서는 pink로 설정) */
+  &::-webkit-progress-value {
+    background: pink;
+  }
+  &::-webkit-progress-bar {
+    background: #ebebeb;
+  }
 `;
