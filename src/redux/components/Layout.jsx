@@ -14,9 +14,11 @@ const Layout = () => {
           alignItems: 'center',
           textAlign: 'center',
           justifyContent: 'space-between',
-          padding: '24px',
-          backgroundColor: 'pink',
-          color: 'white'
+          // padding: '24px',
+          backgroundColor: '#cecef2',
+          color: 'white',
+          height: '120px',
+          textShadow: '1px 1px black'
         }}
       >
         <Link to="/" style={{ textDecoration: 'none' }}>
@@ -64,14 +66,14 @@ const FooterContainer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 160px;
+  height: 130px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: pink;
+  background-color: #cecef2;
   color: gray;
 `;
 const Ul = styled.ul`

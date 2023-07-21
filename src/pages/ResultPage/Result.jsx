@@ -152,8 +152,12 @@ const Button = styled.button`
   width: 200px;
   padding: 20px auto 20px auto;
   font-size: 20px;
-  background-color: pink;
-  border: 2px solid gray;
+  background-color: #fac8d1;
+  border: none;
+  border-radius: 10px;
+  color: #474646;
+  /* text-shadow: 1px 1px black; */
+
   margin-left: 20px;
 `;
 

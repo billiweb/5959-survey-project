@@ -94,7 +94,7 @@ export default Survey;
 
 const PageContainer = styled.div`
   width: 800px;
-  height: auto;
+  height: 300px;
   margin: 30px auto 10px auto;
   border-radius: 15px;
   display: flex;

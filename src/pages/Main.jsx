@@ -25,7 +25,7 @@ const MainAll = styled.div`
   width: 800px;
   height: 300px;
   z-index: 9999;
-  margin: 35px auto 0px auto;
+  margin: 30px auto 0px auto;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -49,4 +49,5 @@ const StartBtn = styled.button`
   background-color: pink;
   cursor: pointer;
   border-radius: 10px;
+  border: none;
 `;
