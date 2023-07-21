@@ -6,6 +6,8 @@ import Survey from '../pages/Survey';
 import Header from '../redux/components/Header';
 import Login from '../pages/LoginPage/Login';
 import Signup from '../pages/LoginPage/Signup';
+import Lists from '../pages/Lists';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -17,6 +19,7 @@ const Router = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/survey/:id" element={<Survey />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/lists" element={<Lists />} />
         <Route
           path="*"
           element={

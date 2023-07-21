@@ -118,8 +118,13 @@ const Result = () => {
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
           저장하기
         </Button>
-        <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
-          다시하기
+        <Button onClick={() => resetButton()}>다시하기</Button>
+        <Button
+          onClick={() => {
+            navigate('/lists');
+          }}
+        >
+          다른 결과보기
         </Button>
         {/* </Link> */}
       </ButtonContainer>
@@ -154,6 +159,7 @@ const Button = styled.button`
   font-size: 20px;
   background-color: pink;
   border: 2px solid gray;
+  margin-left: 20px;
 `;
 
 const Icon = styled.img`
