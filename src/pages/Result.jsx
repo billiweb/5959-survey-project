@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
 import { resetCount } from '../redux/modules/countSlice';
+import html2canvas from 'html2canvas';
+import { auth } from '../firebase';
+import imgLogo from '../정방형1.jpg';
 
 // import { useRef } from 'react';
 
@@ -12,7 +15,8 @@ const Result = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data, isLoading, error } = useQuery('mbti', async () => {
-    const response = await axios.get('http://localhost:3001/mbti');
+    const response = await axios.get('https://aquatic-respected-tuba.glitch.me/mbti');
+
     return response.data;
   });
 
@@ -63,44 +67,56 @@ const Result = () => {
     return <div>Error occurred: {error.message}</div>;
   }
 
-  // // url 복사
-  // const copyUrlRef = useRef(null);
+  const userEmail = auth.currentUser.email;
+  const name = userEmail.split('@')[0];
 
-  // const copyUrl = () => {
-  //   const currentUrl = window.location.href; // 현재 페이지 URL 가져오기
-  //   const additionalPath = `detail/`; // 추가할 경로
-
-  //   const newUrl = currentUrl + additionalPath; // 현재 URL에 추가 경로를 붙임
-  //   copyUrlRef.current.value = newUrl; // 복사할 URL을 참조하는 input 요소에 새로운 URL 설정
-
-  //   copyUrlRef.current.select();
-  //   document.execCommand('copy');
-
-  //   alert('링크가 복사되었습니다.');
-  // };
   const resetButton = () => {
     dispatch(resetCount());
     navigate('/survey/1');
   };
+
+  const handleCaptureClick = () => {
+    const elementToCapture = document.getElementById('captureThis'); // 캡처할 요소의 ID
+
+    html2canvas(elementToCapture).then((canvas) => {
+      // 캡처된 이미지 데이터를 얻습니다.
+      const capturedImageURL = canvas.toDataURL('image/png');
+
+      // 이미지를 컴퓨터에 저장하기 위한 링크를 생성합니다.
+      const downloadLink = document.createElement('a');
+      downloadLink.href = capturedImageURL;
+      downloadLink.download = 'captured_image.png';
+
+      // 링크를 클릭하여 이미지를 다운로드합니다.
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  };
+
   return (
     <PageContainer>
       {newData
         .filter((mbti) => list === mbti.mbti)
         .map((mbti) => {
           return (
-            <PostContainer key={mbti.mbti}>
+            <PostContainer key={mbti.mbti} id="captureThis">
+              <h1>{mbti.mbti}</h1>
+              {/* html2canvas에 이미지 캡처 오류가 있음 */}
               <StImage src={mbti.img} alt="이미지 없음" />
+              {/* 아래와 같이 서버 내부에 파일이 존재할 경우 이미지 캡처에 문제가 없음
+              <StImage src={imgLogo} alt="이미지 없음" /> */}
               <h3>
-                {mbti.mbti} - {mbti.title}
+                {name} 님은 "{mbti.title}" 입니다 😀
               </h3>
               <p>{mbti.body}</p>
             </PostContainer>
           );
         })}
       <ButtonContainer>
-        <Button>
+        <Button onClick={handleCaptureClick}>
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
-          공유하기
+          저장하기
         </Button>
         <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
           다시하기
@@ -115,20 +131,21 @@ export default Result;
 
 const PageContainer = styled.div`
   width: 800px;
-  height: 700px;
+  height: auto;
   position: fixed;
-  margin-top: 20px;
-  top: 50%;
+
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
 
   box-shadow: 1px 1px 5px gray;
-  font-size: 20px;
+  font-size: 17px;
 `;
 
 const Button = styled.button`
@@ -146,21 +163,21 @@ const Icon = styled.img`
   margin-right: 15px;
 `;
 
-const PostContainer = styled.div`
+const PostContainer = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 10px 100px;
+  //padding: 10px 100px;
 `;
 
 const StImage = styled.img`
   justify-content: center;
   margin: 10px auto;
-  padding: 20px;
+  //
   border-radius: 100%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 `;
 
@@ -168,4 +185,5 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+  padding-bottom: 20px;
 `;
