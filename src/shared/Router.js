@@ -3,17 +3,16 @@ import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Main from '../pages/Main';
 import Result from '../pages/ResultPage/Result';
 import Survey from '../pages/Survey';
-import Header from '../redux/components/Header';
+import Layout from '../redux/components/Layout';
 import Login from '../pages/LoginPage/Login';
 import Signup from '../pages/LoginPage/Signup';
 import AllResult from '../pages/ResultPage/AllResult';
-import Footer from '../redux/components/Footer';
+
 const Router = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <div style={{ paddingTop: '75px', paddingBottom: '160px' }}>
-        <Routes>
+      <Routes>
+        <Route path="/" element={<Layout />}>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -29,9 +28,8 @@ const Router = () => {
               </>
             }
           />
-        </Routes>
-      </div>
-      <Footer />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
