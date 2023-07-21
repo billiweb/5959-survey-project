@@ -4,10 +4,10 @@ import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { styled } from 'styled-components';
-import { resetCount } from '../redux/modules/countSlice';
+import { resetCount } from '../../redux/modules/countSlice';
 import html2canvas from 'html2canvas';
-import { auth } from '../firebase';
-import imgLogo from '../정방형1.jpg';
+import { auth } from '../../firebase';
+// import imgLogo from '../정방형1.jpg';
 
 // import { useRef } from 'react';
 
@@ -118,10 +118,14 @@ const Result = () => {
           <Icon src="https://cdn-icons-png.flaticon.com/128/2550/2550207.png" alt="공유하기" />
           저장하기
         </Button>
-        <Button onClick={() => resetButton()} style={{ marginLeft: '20px' }}>
-          다시하기
+        <Button onClick={() => resetButton()}>다시하기</Button>
+        <Button
+          onClick={() => {
+            navigate('/allresult');
+          }}
+        >
+          모든 결과 보러가기
         </Button>
-        {/* </Link> */}
       </ButtonContainer>
     </PageContainer>
   );
@@ -154,6 +158,7 @@ const Button = styled.button`
   font-size: 20px;
   background-color: pink;
   border: 2px solid gray;
+  margin-left: 20px;
 `;
 
 const Icon = styled.img`
