@@ -7,6 +7,7 @@ import { styled } from 'styled-components';
 import { resetCount } from '../redux/modules/countSlice';
 import html2canvas from 'html2canvas';
 import { auth } from '../firebase';
+import imgLogo from '../정방형1.jpg';
 
 // import { useRef } from 'react';
 
@@ -101,7 +102,10 @@ const Result = () => {
           return (
             <PostContainer key={mbti.mbti} id="captureThis">
               <h1>{mbti.mbti}</h1>
+              {/* html2canvas에 이미지 캡처 오류가 있음 */}
               <StImage src={mbti.img} alt="이미지 없음" />
+              {/* 아래와 같이 서버 내부에 파일이 존재할 경우 이미지 캡처에 문제가 없음
+              <StImage src={imgLogo} alt="이미지 없음" /> */}
               <h3>
                 {name} 님은 "{mbti.title}" 입니다 😀
               </h3>
