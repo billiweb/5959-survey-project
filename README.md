@@ -97,26 +97,28 @@
 
 ### 1) 메인페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ecac341a-dda3-4468-be2c-5f9bd8a366ee/Untitled.png)
+![Main](https://github.com/billiweb/5959-survey-project/assets/132885243/7c288bfc-fbd0-4caf-9d97-215c77870e90)
 
 ### 2) 로그인/회원가입
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5645bad9-e468-40e9-956c-9f94fcb7e03c/Untitled.png)
+![Login](https://github.com/billiweb/5959-survey-project/assets/132885243/909819b9-a59e-4b4e-ba83-3c0ae1047536)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/852bb9cc-2367-46a9-9040-b0e8c51a862f/Untitled.png)
+![Signup](https://github.com/billiweb/5959-survey-project/assets/132885243/9b4d9ce5-e57a-4824-8509-eb1eed8b0428)
+
 
 ### 3) 설문조사 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6e59782-91cf-4b97-b276-ac5894a99b1e/Untitled.png)
+![Survey](https://github.com/billiweb/5959-survey-project/assets/132885243/1604f165-d256-4dc5-90b7-78da83c2d9b8)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/78392d03-7f12-427c-8add-daf7c86ea03f/Untitled.png)
 
 ### 4) 결과화면
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e6bab606-43a8-4663-aacb-7a7ba60946af/Untitled.png)
+![result](https://github.com/billiweb/5959-survey-project/assets/132885243/a33e785b-ccf7-4217-9dd4-8dc6c5749b60)
 
 ### 4-1) 저장하기
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/947f6d9c-b3ca-47de-acb8-fdbaf2152c42/Untitled.png)
+![Save](https://github.com/billiweb/5959-survey-project/assets/132885243/a9ecb36a-b6d2-4bd7-9a74-211826f1977f)
 
 ### 5) 모든 결과 보러가기
+
+![Allresult](https://github.com/billiweb/5959-survey-project/assets/132885243/23f570de-d1da-46bf-82d7-f76f3895f605)
