@@ -8,12 +8,12 @@
 팀원/FE|김혜민|https://github.com/hyemin610|
 팀원/FE|홍서영|https://github.com/ddoyongida|
 팀원/FE|최다연|https://github.com/cheddaryeon|
-팀원/FE|한|http://github.com/han0111|
+팀원/FE|한희|http://github.com/han0111|
 
 <br />
 
 # 🗒️ 목차
-1. 프로젝트 개요
+1. 프로젝트 소개
 2. 프로젝트 기능
 3. 프로젝트 사이트 구현 화면
 
